@@ -1,0 +1,649 @@
+/* พื้นฐาน & ฟอนต์ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap');
+/* Poppins สำหรับเนื้อหา, Fredoka One สำหรับหัวข้อที่โดดเด่น */
+
+:root {
+    --primary-color: #00a2ff; /* Roblox Blue */
+    --primary-dark: #007bbd;
+    --secondary-color: #ff3e6d; /* Accent color */
+    --background-light: #f7f9fc; /* Off-white for background */
+    --background-card: #ffffff;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --border-light: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* เปลี่ยนฟอนต์หลัก */
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Header สไตล์ใหม่ */
+.roblox-header {
+    background: linear-gradient(90deg, #333333, #555555); /* Gradient */
+    width: 100%;
+    padding: 15px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* เงาชัดขึ้น */
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 15px; /* มุมโค้งมน */
+    border-bottom-right-radius: 15px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.roblox-logo {
+    height: 35px; /* ขนาดใหญ่ขึ้น */
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* เพิ่มเงาให้โลโก้ */
+}
+
+.roblox-header h1 {
+    font-family: 'Fredoka One', cursive; /* ฟอนต์หัวข้อที่โดดเด่น */
+    color: #ffffff;
+    font-size: 28px; /* ขนาดใหญ่ขึ้น */
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Layout: Sidebar + Content */
+.main-layout {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto; /* เพิ่ม margin */
+    padding: 0 20px;
+    gap: 25px; /* เพิ่มระยะห่าง */
+}
+
+/* Sidebar (เมนูด้านซ้าย) */
+.sidebar {
+    background-color: var(--background-card);
+    border-radius: 15px; /* ขอบโค้งมน */
+    box-shadow: 0 5px 15px var(--shadow-light); /* เงาใหม่ */
+    padding: 20px 0;
+    min-width: 220px; /* ความกว้างเพิ่มขึ้นเล็กน้อย */
+    height: fit-content;
+    position: sticky;
+    top: 95px; /* ห่างจาก Header */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav li {
+    margin-bottom: 8px; /* ระยะห่างระหว่างเมนู */
+}
+
+.sidebar nav .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 25px; /* Padding เพิ่มขึ้น */
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600; /* น้ำหนักฟอนต์ */
+    font-size: 17px; /* ขนาดฟอนต์ */
+    transition: all 0.2s ease-out; /* All transition */
+    border-left: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* ขอบโค้งมนเล็กน้อย */
+}
+
+.sidebar nav .nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.1; /* โปร่งใสเล็กน้อย */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+    z-index: 0;
+}
+
+.sidebar nav .nav-item:hover::before {
+    transform: scaleX(1);
+}
+
+.sidebar nav .nav-item.active::before {
+    transform: scaleX(1);
+    opacity: 0.2; /* เข้มขึ้นเมื่อ active */
+}
+
+.sidebar nav .nav-item i {
+    margin-right: 12px; /* ระยะห่างไอคอน */
+    color: var(--primary-color);
+    z-index: 1;
+    position: relative;
+    font-size: 1.1em; /* ขนาดไอคอนใหญ่ขึ้น */
+}
+.sidebar nav .nav-item span {
+    z-index: 1;
+    position: relative;
+}
+
+.sidebar nav .nav-item.active {
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateX(5px); /* เลื่อนไปทางขวาเล็กน้อยเมื่อ Active */
+}
+.sidebar nav .nav-item:active {
+    transform: translateY(1px); /* เพิ่ม effect กด */
+}
+
+
+.sidebar nav .separator {
+    border-top: 1px solid var(--border-light);
+    margin: 15px 0;
+}
+
+/* Content Area */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* ระยะห่างระหว่าง Card */
+}
+
+/* Page Content (สำหรับ SPA) */
+.page-content {
+    display: none;
+    animation: fadeIn 0.6s ease-out; /* Animation ที่สมูทขึ้น */
+}
+.page-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); } /* เลื่อนลงมาเล็กน้อย */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Card สไตล์ใหม่ */
+.card {
+    background-color: var(--background-card);
+    border-radius: 15px; /* ขอบโค้งมน */
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px var(--shadow-medium); /* เงาชัดเจนขึ้น */
+    padding: 30px; /* Padding เพิ่มขึ้น */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-family: 'Fredoka One', cursive; /* ฟอนต์หัวข้อที่โดดเด่น */
+    color: var(--primary-color);
+    font-size: 26px; /* ขนาดใหญ่ขึ้น */
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--secondary-color); /* เส้นใต้สี Accent */
+    padding-bottom: 12px;
+    display: inline-block;
+    position: relative;
+}
+.card h2::after { /* เพิ่มจุดตกแต่งใต้หัวข้อ */
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.instruction {
+    margin-top: 25px;
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.instruction-small {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* รายการโค้ด */
+.code-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* ระยะห่างระหว่างโค้ด */
+    text-align: left;
+}
+
+.code-item {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-light);
+    border-radius: 10px; /* ขอบโค้งมน */
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.code-item:hover {
+    transform: translateY(-3px); /* เลื่อนขึ้นเมื่อ hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.code-item strong {
+    font-size: 20px; /* ขนาดโค้ดใหญ่ขึ้น */
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.code-item p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.copy-button {
+    background: linear-gradient(45deg, var(--primary-color), #00c9ff); /* Gradient button */
+    color: white;
+    border: none;
+    border-radius: 8px; /* ขอบโค้งมน */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    align-self: flex-end;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 162, 255, 0.3); /* เงาปุ่ม */
+}
+
+.copy-button:hover {
+    background: linear-gradient(45deg, #00c9ff, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 162, 255, 0.4);
+}
+.copy-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 162, 255, 0.2);
+}
+
+/* ส่วนกรอกโค้ด / ตรวจสอบโค้ด */
+.input-group {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px; /* จำกัดความกว้าง */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#checkCodeInput {
+    flex-grow: 1;
+    padding: 14px 18px; /* Padding เพิ่มขึ้น */
+    border: 2px solid var(--border-light); /* ขอบหนาขึ้น */
+    border-radius: 10px 0 0 10px; /* ขอบโค้งมน */
+    font-size: 17px;
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#checkCodeInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 162, 255, 0.25); /* เงารอบ input */
+}
+
+/* ปุ่มทั่วไป (Modern Button) */
+.modern-button { /* ใช้แทน .roblox-button สำหรับส่วนที่เหลือ */
+    background: linear-gradient(45deg, var(--primary-color), #00c9ff);
+    color: white;
+    border: none;
+    border-radius: 0 10px 10px 0; /* ขอบโค้งมน */
+    padding: 14px 30px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 162, 255, 0.3);
+}
+
+.modern-button:hover {
+    background: linear-gradient(45deg, #00c9ff, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 162, 255, 0.4);
+}
+
+.modern-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 162, 255, 0.2);
+}
+
+/* สำหรับปุ่มบนมือถือ ถ้า input เป็น 100% ปุ่มก็ควรเป็น 100% และมี border-radius เต็ม */
+@media (max-width: 600px) {
+    #checkCodeInput, .modern-button {
+        border-radius: 10px; /* ทำให้ปุ่มมีขอบโค้งมนเต็ม */
+    }
+}
+
+
+.info-message {
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 8px; /* ขอบโค้งมน */
+    display: inline-block;
+    font-weight: 500;
+}
+.info-message[style*="green"] { background-color: #e6ffe6; border: 1px solid #00cc00; color: #008000; }
+.info-message[style*="red"] { background-color: #ffe6e6; border: 1px solid #cc0000; color: #800000; }
+.info-message[style*="orange"] { background-color: #fffacd; border: 1px solid #ff8c00; color: #cc6600; }
+
+
+/* Home Page Specific */
+.home-welcome-card {
+    padding: 40px;
+}
+
+.home-welcome-card h2 {
+    font-size: 32px; /* ขนาดใหญ่ขึ้น */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+.home-welcome-card h2::after { /* ซ่อนจุดใต้หัวข้อ h2 ในการ์ดนี้ */
+    display: none;
+}
+
+
+.home-welcome-card p {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+.home-welcome-card .call-to-action {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary-color); /* สี Accent */
+    margin-top: 30px;
+    animation: bounceText 1.5s infinite alternate; /* เพิ่ม animation */
+}
+@keyframes bounceText {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* กำหนดขนาดสูงสุดของ Slider */
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* เงาสำหรับ Slider */
+    background-color: #f0f0f0; /* พื้นหลังเมื่อรูปยังไม่โหลด */
+}
+
+.home-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ */
+    transition: opacity 0.6s ease-in-out; /* Transition ที่สมูทขึ้น */
+    border-radius: 15px; /* ทำให้รูปภาพมีขอบโค้งมน */
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* พื้นหลังปุ่ม */
+    color: white;
+    border: none;
+    padding: 15px 10px; /* ขนาดปุ่ม */
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+.slider-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05); /* ขยายเล็กน้อยเมื่อ hover */
+}
+.slider-nav.prev {
+    left: 10px;
+}
+.slider-nav.next {
+    right: 10px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px; /* ระยะห่างระหว่างจุด */
+    z-index: 10;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+}
+.dot.active {
+    background-color: var(--primary-color); /* สีเดียวกับธีมหลักเมื่อ Active */
+    border-color: var(--primary-color);
+    transform: scale(1.2); /* ใหญ่ขึ้นเมื่อ Active */
+    box-shadow: 0 0 8px rgba(0, 162, 255, 0.6);
+}
+
+
+.feature-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.feature-card li {
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--text-dark);
+}
+
+.feature-card li i {
+    color: var(--primary-color);
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+
+/* Footer Bottom */
+.footer-bottom {
+    background: linear-gradient(90deg, #333333, #555555);
+    color: #ffffff;
+    padding: 20px; /* Padding เพิ่มขึ้น */
+    font-size: 13px;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+.footer-bottom p {
+    margin: 5px 0;
+}
+.footer-bottom .developer-info {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+
+/* Responsive ปรับให้เหมาะกับมือถือ */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+        padding: 0 15px;
+        margin: 15px auto;
+        gap: 15px;
+    }
+
+    .sidebar {
+        min-width: unset;
+        width: 100%;
+        position: static;
+        top: unset;
+        padding: 15px;
+        order: -1;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .sidebar nav li {
+        margin-bottom: 0;
+    }
+
+    .sidebar nav .nav-item {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .sidebar nav .nav-item::before {
+        display: none;
+    }
+    
+    .sidebar nav .nav-item.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-color);
+    }
+
+    .sidebar nav .nav-item i {
+        display: none;
+    }
+
+    .sidebar nav .separator {
+        display: none;
+    }
+
+    .roblox-header h1 {
+        font-size: 22px;
+    }
+    .roblox-logo {
+        height: 28px;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    #checkCodeInput, .modern-button {
+        border-radius: 10px;
+        width: 100%;
+        max-width: none;
+        padding: 12px 15px;
+        font-size: 15px;
+    }
+
+    .copy-button {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .slider-nav {
+        padding: 10px 8px;
+        font-size: 18px;
+    }
+    .slider-dots {
+        bottom: 10px;
+        gap: 6px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .home-welcome-card h2 {
+        font-size: 26px;
+    }
+    .home-welcome-card p {
+        font-size: 15px;
+    }
+    .home-welcome-card .call-to-action {
+        font-size: 16px;
+    }
+
+    .feature-card li {
+        font-size: 14px;
+    }
+    .feature-card li i {
+        font-size: 18px;
+    }
+}
