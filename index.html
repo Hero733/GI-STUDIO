@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Home - หน้าแรก</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://www.roblox.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="roblox-header">
+        <div class="header-content">
+            <img src="assets/img/GI.png" alt="Roblox Logo" class="roblox-logo">
+            <h1 id="mainHeaderTitle">หน้าแรก</h1>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-item active" data-page="home"><i class="fas fa-home"></i> <span>หน้าแรก</span></a></li>
+                    <li class="separator"></li>
+                    <li><a href="#FruityLand" class="nav-item" data-page="bloxfruits"><i class="fas fa-ship"></i> <span>FruityLand</span></a></li>
+                    <li><a href="#GodPiece" class="nav-item" data-page="petsimx"><i class="fas fa-ship"></i> <span>GodPiece</span></a></li>
+                    <li><a href="#OakPiece" class="nav-item" data-page="adoptme"><i class="fas fa-ship"></i> <span>OakPiece</span></a></li>
+                    <li class="separator"></li>
+                    <li><a href="#about" class="nav-item" data-page="about"><i class="fas fa-info-circle"></i> <span>เกี่ยวกับ</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <div id="homePage" class="page-content active">
+                <div class="card home-welcome-card">
+                    <h2>🚀 ยินดีต้อนรับ เข้าสู่เว็ปของพวกเรา</h2>
+                    <p>ค้นหาโค้ดใหม่ หรือ เก่าได้ที่นี้</p>
+                    
+                    <div class="slider-container">
+                        <img src="assets/img/Obito.png" alt="Awesome Game Scene" class="home-thumbnail" id="homeSliderImage">
+                        <button class="slider-nav prev" id="sliderPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-nav next" id="sliderNextBtn"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots" id="sliderDots">
+                            </div>
+                    </div>
+
+                    <p class="call-to-action">⚡ เลือกแมพที่คุณ ต้องการทางซ้ายมือ!</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>💎 ฟีเจอร์เด็ดที่เรามีให้คุณ</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> โค้ดใหม่แกะกล่อง อัพเดตทุกโค้ดแนะนำไม่มีหลอกลวง!</li>
+                        <li><i class="fas fa-search"></i> ระบบตรวจสอบโค้ด ใช้งานง่าย ไม่พลาดทุกรางวัล!</li>
+                        <li><i class="fas fa-gamepad"></i> รวมโค้ดจากหลายเกมในค่าย GI ครบคลั้น!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="mapPage" class="page-content">
+                <div class="card check-code-section">
+                    <h2>🔍 ตรวจสอบโค้ด (Code Checker)</h2>
+                    <p class="instruction-small">ใส่โค้ดที่คุณมี เพื่อดูว่าได้อะไรและยังใช้งานได้ไหม!</p>
+                    <div class="input-group">
+                        <input type="text" id="checkCodeInput" placeholder="ใส่โค้ดที่ต้องการตรวจสอบ...">
+                        <button id="checkCodeButton" class="modern-button">ตรวจสอบ</button>
+                    </div>
+                    <p id="checkMessage" class="info-message"></p>
+                </div>
+
+                <div class="card code-section">
+                    <h2>✨ โค้ดใหม่ล่าสุด (New Codes)</h2>
+                    <div id="newCodeList" class="code-list">
+                        </div>
+                    <p class="instruction">💡 **ทิปส์:** แค่คลิก "คัดลอก" แล้วเอาไปใส่ในเกมได้เลย!</p>
+                </div>
+
+                <div class="card code-section">
+                    <h2>⏳ โค้ดเก่า / หมดอายุ (Old / Expired Codes)</h2>
+                    <div id="oldCodeList" class="code-list">
+                        </div>
+                </div>
+            </div>
+
+            <div id="aboutPage" class="page-content">
+                <div class="card about-card">
+                    <h2>👋 เกี่ยวกับเรา</h2>
+                    <p>เว็บไซต์นี้สร้างขึ้น เผื่อช่วยอำนวยความสะดวก ให้กับเหล่าผู้เล่นที่ ชอบเกมในค่าย GI ของเรา</p>
+                    <p>หากมีคำแนะนำ ติชม หรือพบเจอปัญหา สามารถติดต่อเราได้ที่ [Discord : https://discord.gg/xuxhPVtR] ยินดีรับฟังทุกความคิดเห็นครับ!</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2025 [Codes G.GIS]. All rights reserved. (ไม่ใช่เว็บไซต์ทางการของ Roblox)</p>
+        <p class="developer-info">พัฒนาโดย [Team GIS]</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
